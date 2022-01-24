@@ -653,5 +653,3 @@ def pregunta_12():
                     e.append(i)      
 
         return {"A": sum(a), "B" : sum(b), "C": sum(c), "D": sum(d), "E": sum(e)}
-
-print(pregunta_12())
