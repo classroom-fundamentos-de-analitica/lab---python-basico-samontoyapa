@@ -11,7 +11,9 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 
 """
+import csv
 
+from collections import OrderedDict
 
 def pregunta_01():
     """
@@ -21,8 +23,19 @@ def pregunta_01():
     214
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter=" ",
+        quotechar='"',
+        )
 
+        sum = 0
+        for row in csv_reader:
+            fila = row[0]
+            sum = sum + int(fila[2])
+
+    return sum
 
 def pregunta_02():
     """
@@ -39,8 +52,34 @@ def pregunta_02():
     ]
 
     """
-    return
 
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter=" ",
+        quotechar='"',
+        )
+
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+        e = 0
+
+        for row in csv_reader:
+            fila = row[0]
+            letter = fila[0]
+            if letter == "A":
+                a = a + 1
+            elif letter == "B":
+                b = b + 1
+            elif letter == "C":
+                c = c + 1
+            elif letter == "D":
+                d = d + 1
+            elif letter == "E":
+                e = e + 1
+    return [("A", a),("B", b),("C", c ),("D", d),("E", e)]
 
 def pregunta_03():
     """
@@ -57,7 +96,34 @@ def pregunta_03():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter=" ",
+        quotechar='"',
+        )
+
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+        e = 0
+
+        for row in csv_reader:
+            fila = row[0]
+            letter = fila[0]
+            if letter == "A":
+                a = a + int(fila[2])
+            elif letter == "B":
+                b = b + int(fila[2])
+            elif letter == "C":
+                c = c + int(fila[2])
+            elif letter == "D":
+                d = d + int(fila[2])
+            elif letter == "E":
+                e = e + int(fila[2])
+
+    return [("A", a),("B", b),("C", c ),("D", d),("E", e)]
 
 
 def pregunta_04():
@@ -82,8 +148,58 @@ def pregunta_04():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter=" ",
+        quotechar='"',
+        )
 
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+        e = 0
+        f = 0
+        g = 0
+        h = 0
+        i = 0
+        j = 0
+        k = 0
+        l = 0
+
+        for row in csv_reader:
+            fila = row[0]
+            date = fila[9:11]
+            if date == "01":
+                a = a + 1
+            elif date == "02":
+                b = b + 1
+            elif date == "03":
+                c = c + 1
+            elif date == "04":
+                d = d + 1
+            elif date == "05":
+                e = e + 1
+            elif date == "06":
+                f = f + 1
+            elif date == "07":
+                g = g + 1
+            elif date == "08":
+                h = h + 1
+            elif date == "09":
+                i = i + 1
+            elif date == "10":
+                j = j + 1
+            elif date == "11":
+                k = k + 1
+            elif date == "12":
+                l = l + 1
+
+    return [("01", a),("02", b),("03", c ),("04", d),("05", e),("06", f),
+            ("07", g),("08", h ),("09", i),("10", j),("11",k),("12",l)]
+
+pregunta_04()
 
 def pregunta_05():
     """
@@ -100,8 +216,34 @@ def pregunta_05():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter=" ",
+        quotechar='"',
+        )
 
+        a = []
+        b = []
+        c = []
+        d = []
+        e = []
+
+        for row in csv_reader:
+            fila = row[0]
+            letter = fila[0]
+            if letter == "A":
+                a.append(int(fila[2]))
+            elif letter == "B":
+                b.append(int(fila[2]))
+            elif letter == "C":
+                c.append(int(fila[2]))
+            elif letter == "D":
+                d.append(int(fila[2]))
+            elif letter == "E":
+                e.append(int(fila[2]))
+
+    return [("A", max(a), min(a)),("B", max(b), min(b)),("C", max(c), min(c)),("D", max(d), min(d)),("E", max(e), min(e))]
 
 def pregunta_06():
     """
@@ -125,8 +267,50 @@ def pregunta_06():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        a = []
+        b = []
+        c = []
+        d = []
+        e = []
+        f = []
+        g = []
+        h = []
+        i = []
+        j = []
+        for row in csv_reader:
+            fila = row[4].split(',')
+            
+            for item in fila:
+                parts =  item.split(':')
+                if parts[0] == "aaa":
+                    a.append(int(parts[1]))
+                elif parts[0] == "bbb":
+                    b.append(int(parts[1]))
+                elif parts[0] == "ccc":
+                    c.append(int(parts[1]))
+                elif parts[0] == "ddd":
+                    d.append(int(parts[1]))
+                elif parts[0] == "eee":
+                    e.append(int(parts[1]))
+                elif parts[0] == "fff":
+                    f.append(int(parts[1]))
+                elif parts[0] == "ggg":
+                    g.append(int(parts[1]))
+                elif parts[0] == "hhh":
+                    h.append(int(parts[1]))
+                elif parts[0] == "iii":
+                    i.append(int(parts[1]))
+                elif parts[0] == "jjj":
+                    j.append(int(parts[1]))
 
+    return [("aaa", min(a), max(a)),("bbb", min(b), max(b)),("ccc", min(c), max(c)),("ddd", min(d), max(d)),("eee", min(e), max(e)),
+    ("fff", min(f), max(f)),("ggg", min(g), max(g)),("hhh", min(h), max(h)),("iii", min(i), max(i)),("jjj", min(j), max(j))]
 
 def pregunta_07():
     """
@@ -149,8 +333,47 @@ def pregunta_07():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        f0 = []
+        f1 = []
+        f2 = []
+        f3 = []
+        f4 = []
+        f5 = []
+        f6 = []
+        f7 = []
+        f8 = []
+        f9 = []
+        
+        for row in csv_reader:
+            if  row[1] == "0":
+                f0.append(row[0])
+            elif row[1]  == "1":
+                f1.append(row[0])
+            elif row[1]  == "2":
+                f2.append(row[0])
+            elif row[1]  == "3":
+                f3.append(row[0])
+            elif row[1]  == "4":
+                f4.append(row[0])
+            elif row[1]  == "5":
+                f5.append(row[0])
+            elif row[1]  == "6":
+                f6.append(row[0])
+            elif row[1]  == "7":
+                f7.append(row[0])
+            elif row[1]  == "8":
+                f8.append(row[0])
+            elif row[1]  == "9":
+                f9.append(row[0])
 
+
+    return [(0, f0),(1,f1),(2,f2),(3,f3),(4,f4),(5, f5),(6, f6),(7, f7),(8, f8),(9, f9)]
 
 def pregunta_08():
     """
@@ -174,8 +397,48 @@ def pregunta_08():
     ]
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        f0 = []
+        f1 = []
+        f2 = []
+        f3 = []
+        f4 = []
+        f5 = []
+        f6 = []
+        f7 = []
+        f8 = []
+        f9 = []
+        
+        for row in csv_reader:
+            if  row[1] == "0":
+                f0.append(row[0])
+            elif row[1]  == "1":
+                f1.append(row[0])
+            elif row[1]  == "2":
+                f2.append(row[0])
+            elif row[1]  == "3":
+                f3.append(row[0])
+            elif row[1]  == "4":
+                f4.append(row[0])
+            elif row[1]  == "5":
+                f5.append(row[0])
+            elif row[1]  == "6":
+                f6.append(row[0])
+            elif row[1]  == "7":
+                f7.append(row[0])
+            elif row[1]  == "8":
+                f8.append(row[0])
+            elif row[1]  == "9":
+                f9.append(row[0])
 
+
+    return [(0,  list(OrderedDict.fromkeys(sorted(f0)))),(1, list(OrderedDict.fromkeys(sorted(f1)))),(2, list(OrderedDict.fromkeys(sorted(f2)))),(3, list(OrderedDict.fromkeys(sorted(f3)))),(4, list(OrderedDict.fromkeys(sorted(f4)))),
+            (5,  list(OrderedDict.fromkeys(sorted(f5)))),(6,  list(OrderedDict.fromkeys(sorted(f6)))),(7,  list(OrderedDict.fromkeys(sorted(f7)))),(8,  list(OrderedDict.fromkeys(sorted(f8)))),(9,  list(OrderedDict.fromkeys(sorted(f9))))]
 
 def pregunta_09():
     """
@@ -197,8 +460,50 @@ def pregunta_09():
     }
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+        e = 0
+        f = 0
+        g = 0
+        h = 0
+        i = 0
+        j = 0
+        for row in csv_reader:
+            fila = row[4].split(',')
+            
+            for item in fila:
+                parts =  item.split(':')
+                if parts[0] == "aaa":
+                    a = a + 1
+                elif parts[0] == "bbb":
+                    b = b + 1
+                elif parts[0] == "ccc":
+                    c = c + 1
+                elif parts[0] == "ddd":
+                    d = d + 1
+                elif parts[0] == "eee":
+                    e = e + 1
+                elif parts[0] == "fff":
+                    f = f + 1
+                elif parts[0] == "ggg":
+                    g = g + 1
+                elif parts[0] == "hhh":
+                    h = h + 1
+                elif parts[0] == "iii":
+                    i = i + 1
+                elif parts[0] == "jjj":
+                    j = j + 1
 
+    return {"aaa": a, "bbb" : b, "ccc": c, "ddd": d, "eee": e ,
+     "fff": f , "ggg": g , "hhh": h, "iii": i , "jjj": j }
 
 def pregunta_10():
     """
@@ -218,8 +523,22 @@ def pregunta_10():
 
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        
+        d = []
+        for row in csv_reader:
+            column4 = row[3].split(',')
+            column5 = row[4].split(',')
+            
+            d.append((row[0], len(column4), len(column5)))
+                
 
+    return d
 
 def pregunta_11():
     """
@@ -239,8 +558,45 @@ def pregunta_11():
 
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        
+        a = []
+        b = []
+        c = []
+        d = []
+        e = []
+        f = []
+        g = []
 
+        for row in csv_reader:
+            
+            times = row[1]
+            letters = row[3]
+            for item in letters:
+                if item == "a":
+                    a.append(int(times))
+                elif item == "b":
+                    b.append(int(times))
+                elif item == "c":
+                    c.append(int(times))
+                elif item == "d":
+                    d.append(int(times))
+                elif item == "e":
+                    e.append(int(times))
+                elif item == "f":
+                    f.append(int(times))
+                elif item == "g":
+                    g.append(int(times))
+
+                
+
+        return {"a": sum(a), "b" : sum(b), "c": sum(c), "d": sum(d), "e": sum(e) ,
+                "f": sum(f) , "g": sum(g)}
 
 def pregunta_12():
     """
@@ -257,4 +613,43 @@ def pregunta_12():
     }
 
     """
-    return
+    with open("data.csv", "r") as csv_file:
+        csv_reader = csv.reader(
+        csv_file,
+        delimiter="\t",
+        quotechar='"',
+        )
+        
+        a = []
+        b = []
+        c = []
+        d = []
+        e = []
+
+        for row in csv_reader:
+            
+            letter = row[0]
+            column4 = row[4].split(',')
+
+            list1 = []
+            for item in column4:
+                parts =  item.split(':')
+                list1.append(int(parts[1]))
+
+            if letter == "A":
+                for i in list1:
+                    a.append(i)
+            elif letter == "B":
+                for i in list1:
+                    b.append(i)
+            elif letter == "C":
+                for i in list1:
+                    c.append(i)
+            elif letter == "D":
+                for i in list1:
+                    d.append(i)
+            elif letter == "E":
+                for i in list1:
+                    e.append(i)      
+
+        return {"A": sum(a), "B" : sum(b), "C": sum(c), "D": sum(d), "E": sum(e)}
